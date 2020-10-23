@@ -7,17 +7,18 @@
 <div class="mainBox">
   <h2>Order Details</h2>
   <hr />
-  <h3>Name: @Html.DisplayFor(model => model.OrderName) </h3>
-  <h4>Description: @Html.DisplayFor(model => model.OrderDescription)</h4>
+  <h3>User: @User.Identity.Name</h3>
+  <h3>Order Name: @Html.DisplayFor(model => model.OrderName) </h3>
+  <h4>Order Description: @Html.DisplayFor(model => model.OrderDescription)</h4>
   
   <hr />
   @if (@Model.Treats.Count == 0)
 {
-  <p>This Order does not include any Treats.</p>
+  <p>This order does not include any Treats.</p>
 }
 else
 {
-  <h3>Treats this Order includes:</h3>
+  <h3>Treats included in this order:</h3>
   <ul>
     @foreach (var join in Model.Treats)
     {
@@ -32,7 +33,7 @@ else
 }
 
   <hr />
-  <p>@Html.ActionLink("Add Treat", "AddTreat", null, new { id = Model.OrderId }, new { @class = "btn btn-info btn-sm" })</p>
+  <p>@Html.ActionLink("Add Treat to Order", "AddTreat", null, new { id = Model.OrderId }, new { @class = "btn btn-info btn-sm" })</p>
   <p>@Html.ActionLink("Edit Order", "Edit", null, new { id = Model.OrderId }, new { @class = "btn btn-info btn-sm" })</p>
   <p>@Html.ActionLink("Delete Order", "Delete", null, new { id = Model.OrderId }, new { @class = "btn btn-info btn-sm" })</p>
   <p>@Html.ActionLink("Back to Order List", "Index",null, null, new { @class = "btn btn-info btn-sm" })</p>

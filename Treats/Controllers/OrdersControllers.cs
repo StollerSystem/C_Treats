@@ -13,7 +13,7 @@ using System.Security.Claims;
 
 namespace Orders.Controllers
 {
-  // [Authorize] //new line
+  [Authorize] //new line
   public class OrdersController : Controller
   {
     private readonly TreatsContext _db;
@@ -23,20 +23,20 @@ namespace Orders.Controllers
       _userManager = userManager;
       _db = db;
     }
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      // var currentUser = await _userManager.FindByIdAsync(userId);
-      // List<Order> userOrders = _db.Orders.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      List<Order> userOrders = _db.Orders.Where(entry => entry.User.Id == currentUser.Id).ToList();
 
-      List<Order> model = _db.Orders.OrderBy(x => x.OrderName).ToList();
-      return View(model);
+      // List<Order> model = _db.Orders.OrderBy(x => x.OrderName).ToList();
+      return View(userOrders);
     }
     public ActionResult Create()
     {
       return View();
     }
-    [Authorize]
+    
     [HttpPost]
     public async Task<ActionResult> Create(Order Order)
     {
@@ -55,13 +55,13 @@ namespace Orders.Controllers
       Order model = _db.Orders.FirstOrDefault(Order => Order.OrderId == id);
       return View(model);
     }
-    [Authorize]
+    
     public ActionResult Edit(int id)
     {
       var thisOrder = _db.Orders.FirstOrDefault(Order => Order.OrderId == id);
       return View(thisOrder);
     }
-    [Authorize]
+    
     [HttpPost]
     public ActionResult Edit(Order Order)
     {
@@ -69,13 +69,13 @@ namespace Orders.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    [Authorize]
+    
     public ActionResult Delete(int id)
     {
       var thisOrder = _db.Orders.FirstOrDefault(x => x.OrderId == id);
       return View(thisOrder);
     }
-    [Authorize]
+    
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
@@ -84,7 +84,7 @@ namespace Orders.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    [Authorize]
+    
     //  Treat
     public ActionResult AddTreat(int id)
     {
@@ -92,7 +92,7 @@ namespace Orders.Controllers
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisOrder);
     }
-    [Authorize]
+    
     [HttpPost]
     public ActionResult AddTreat(Order Order, int TreatId)
     {
@@ -103,7 +103,7 @@ namespace Orders.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Order.OrderId });
     }
-    [Authorize]
+    
     [HttpPost]
     public ActionResult DeleteTreat(int OrderId, int joinId)
     {
