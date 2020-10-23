@@ -32,7 +32,7 @@ namespace Treats.Controllers
     {
       return View();
     }
-    [Authorize]
+    [Authorize (Roles = "Administrator")]
     [HttpPost]
     public async Task<ActionResult> Create(Treat Treat)
     {
@@ -49,13 +49,13 @@ namespace Treats.Controllers
       Treat model = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
       return View(model);
     }
-    [Authorize]
+    [Authorize (Roles = "Administrator")]
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
       return View(thisTreat);
     }
-    [Authorize]
+    [Authorize (Roles = "Administrator")]
     [HttpPost]
     public ActionResult Edit(Treat Treat)
     {
@@ -63,13 +63,13 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    [Authorize]
+    [Authorize (Roles = "Administrator")]
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(x => x.TreatId == id);
       return View(thisTreat);
     }
-    [Authorize]
+    [Authorize (Roles = "Administrator")]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
@@ -78,7 +78,7 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    [Authorize]
+    [Authorize (Roles = "Administrator")]
     //  Flavor
     public ActionResult AddFlavor(int id)
     {
@@ -86,7 +86,7 @@ namespace Treats.Controllers
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
-    [Authorize]
+    [Authorize (Roles = "Administrator")]
     [HttpPost]
     public ActionResult AddFlavor(Treat Treat, int FlavorId)
     {
@@ -97,7 +97,7 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Treat.TreatId });
     }
-    [Authorize]
+    [Authorize (Roles = "Administrator")]
     [HttpPost]
     public ActionResult DeleteFlavor(int TreatId, int joinId)
     {

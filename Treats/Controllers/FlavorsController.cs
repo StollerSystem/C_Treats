@@ -28,7 +28,7 @@ namespace Treats.Controllers
       List<Flavor> model = _db.Flavors.OrderBy(x => x.FlavorName).ToList();
       return View(model);
     }
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Create()
     {
       return View();
@@ -49,13 +49,13 @@ namespace Treats.Controllers
       Flavor model = _db.Flavors.FirstOrDefault(Flavor => Flavor.FlavorId == id);
       return View(model);
     }
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(Flavor => Flavor.FlavorId == id);
       return View(thisFlavor);
     }
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult Edit(Flavor Flavor)
     {
@@ -63,13 +63,13 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(x => x.FlavorId == id);
       return View(thisFlavor);
     }
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
@@ -78,7 +78,7 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     // Treat
     public ActionResult AddTreat(int id)
     {
@@ -86,7 +86,7 @@ namespace Treats.Controllers
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult AddTreat(Flavor Flavor, int TreatId)
     {
@@ -97,7 +97,7 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Flavor.FlavorId });
     }
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult DeleteTreat(int FlavorId, int joinId)
     {
