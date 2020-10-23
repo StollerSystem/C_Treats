@@ -39,11 +39,9 @@ namespace Orders.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      Order.User = currentUser; //"STAMP" USER ON THE OBJECT
+      Order.User = currentUser; 
       _db.Orders.Add(Order);      
-      _db.SaveChanges();
-      // _db.Orders.Add(Order);
-      // _db.SaveChanges();
+      _db.SaveChanges();      
       return RedirectToAction("Index");
     }
 
@@ -80,9 +78,8 @@ namespace Orders.Controllers
       _db.Orders.Remove(thisOrder);
       _db.SaveChanges();
       return RedirectToAction("Index");
-    }
+    }    
     
-    //  Treat
     public ActionResult AddTreat(int id)
     {
       var thisOrder = _db.Orders.FirstOrDefault(Orders => Orders.OrderId == id);
@@ -93,7 +90,7 @@ namespace Orders.Controllers
     [HttpPost]
     public ActionResult AddTreat(Order Order, int TreatId, int TreatQuantity)
     {
-      // System.Console.WriteLine("order qty: "+TreatQuantity);
+      
       if (TreatId != 0)
       {
         _db.OrderTreats.Add(new OrderTreat() { TreatId = TreatId, OrderId = Order.OrderId, TreatQuantity = TreatQuantity});
@@ -111,7 +108,7 @@ namespace Orders.Controllers
       return RedirectToAction("Details", new { id = OrderId });
     }
 
-    [HttpPost] // SEARCH
+    [HttpPost] 
     public ActionResult Index(string name)
     {
       List<Order> model = _db.Orders.Where(x => x.OrderName.Contains(name)).ToList();      

@@ -24,10 +24,7 @@ else
   <h3>Treats included in this order:</h3>
   <ul>
     @foreach (var join in Model.Treats)
-    {
-      
-      
-      
+    {      
       @using (Html.BeginForm("DeleteTreat", "Orders"))
       {
       <li>@Html.ActionLink($"{join.Treat.TreatName} (${join.Treat.TreatPrice.ToString("0.00")}) ea.", "Details", "Treats", new { id = join.Treat.TreatId }) | Quantity x @join.TreatQuantity | Subtotal: $@((join.TreatQuantity*join.Treat.TreatPrice).ToString("0.00"))   <input type="submit" value="Remove" class="btn btn-warning btn-sm" /> </li>

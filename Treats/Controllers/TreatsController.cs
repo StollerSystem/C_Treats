@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace Treats.Controllers
 {
-  // [Authorize] 
+  
   public class TreatsController : Controller
   {
     private readonly TreatsContext _db;
@@ -40,7 +40,7 @@ namespace Treats.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      Treat.User = currentUser; //"STAMP" USER ON THE OBJECT
+      Treat.User = currentUser; 
       _db.Treats.Add(Treat);      
       _db.SaveChanges();      
       return RedirectToAction("Index");
@@ -86,7 +86,7 @@ namespace Treats.Controllers
     }
 
     [Authorize (Roles = "Administrator")]
-    //  Add Flavor 
+    
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
@@ -116,7 +116,7 @@ namespace Treats.Controllers
       return RedirectToAction("Details", new { id = TreatId });
     }
 
-    [HttpPost] // SEARCH
+    [HttpPost] 
     public ActionResult Index(string name)
     {
       List<Treat> model = _db.Treats.Where(x => x.TreatName.Contains(name)).ToList();      
@@ -124,8 +124,7 @@ namespace Treats.Controllers
       ViewBag.filterName = "Filtering by: "+name;
       return View("Index", sortedList);
     }
-
-    // ADD TO ORDER
+    
     [Authorize]
     public ActionResult AddOrder(int id)
     {
@@ -137,8 +136,7 @@ namespace Treats.Controllers
     [Authorize]
     [HttpPost]
     public ActionResult AddOrder(Treat treat, int OrderId, int TreatQuantity)
-    {
-      // System.Console.WriteLine("test name"+treat.TreatName);
+    {      
       string confirmation = $"{TreatQuantity} {treat.TreatName} added to your order!";
       if (OrderId != 0)
       {
