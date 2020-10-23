@@ -6,6 +6,9 @@
 
 ## Description
 
+* As a user who has not logged in, you can view all the different Treats and Flavors, click on them to see their details and view corresponding Treats/Flavors they are combined with. 
+* You can register an account, then after you are logged in you will be able to go to the "orders" tab and create new orders. Once you create an order you can start adding Treats to it! You can add from the order view OR from the details page of a specific treat you're viewing. Once you've added some treats to your order the order details page will display a grand total of how much your order will be! 
+* In order to create, edit and delete Treats/Flavors you need to be logged in as an Admin  (email: admin@treats.local password: NotSecure123!!) 
 
 
 ## User Stories
@@ -17,31 +20,22 @@
 * A user should be able to navigate to a splash page that lists all treats and flavors. Users should be able to click on an individual treat or flavor to see all the treats/flavors that belong to it.
 
 
-Stretch Goals Completed:
+## Stretch Goals Completed:
 
+* Have separate roles for admins and logged-in users. Only admins should be able to add, update and delete Treats and Flavors.
 
-
+* Add an order form that only logged-in users can access. A logged-in user should be able to create, read, update and delete their own orders.
 
 
 
 ## Setup/Installation Requirements
 
-NOTE - you can do the following to manually set up the databse for the project OR you can run the command 'dotnet ef database update' after you clone as explained below in 'Website Setup'.
 
-## MySQL Workbench Schema Setup:
-1. Open [MySql Workbench](https://www.mysql.com/products/workbench/) and connect to Local instance
-2. Create a new sql tab by clicking the upper left icon: 'Create A New SQL Tab for Executing Queries'
-3. Copy and paste the following code into "Query" and "Run":
----
-### **Copy The Following Code:**
-
-
-## Website Setup:
 * Download or Clone project from Github repository.
-* Open a terminal within Factory folder within the main project directory.
-* Use command: 'dotnet restore' to install.
-* After installation, type in 'dotnet build'.
+* Open a terminal within Treats folder within the main project directory.
+* Use command: 'dotnet restore' to install dependencies.
 * Use command 'dotnet ef database update' to scaffold the database for the project. 
+* Use command 'dotnet build' to build the project.
 * After build, run the program with 'dotnet run' in the terminal.
 * If you don't have it already, create an "appsettings.json" file in the "ben_stoller" directory and Insert the code below with your user name and password for MySQL: 
 
@@ -51,11 +45,9 @@ NOTE - you can do the following to manually set up the databse for the project O
 >  }
 >}
 
-* Follow terminal prompts to see application run.
 
 
 ## Known Bugs
-
 
 
 
