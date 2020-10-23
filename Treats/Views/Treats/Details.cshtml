@@ -9,6 +9,7 @@
   <hr />
   <h3>Name: @Html.DisplayFor(model => model.TreatName) </h3>
   <h4>Description: @Html.DisplayFor(model => model.TreatDescription)</h4>
+  <h4>Price: $@Model.TreatPrice.ToString("0.00")</h4>
   
   <hr />
   @if (@Model.Flavors.Count == 0)

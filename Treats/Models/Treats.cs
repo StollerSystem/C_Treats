@@ -13,10 +13,12 @@ namespace Treats.Models
 
     public string TreatName { get; set; }   
 
-    public string TreatDescription { get; set; }      
+    public string TreatDescription { get; set; }     
+
+    public decimal TreatPrice { get; set; }       
     
     public virtual ApplicationUser User { get; set; } 
-    
+
     public virtual ICollection<TreatFlavor> Flavors { get; set; }
     
   }

@@ -18,6 +18,10 @@
       @Html.TextBoxFor(model => model.TreatDescription, 
       new {@required="required"})
 
+      @Html.Label("Price $")
+      @Html.TextBoxFor(model => model.TreatPrice, 
+      new {@required="required", type="number", step=".01"})
+
       @* @Html.Label("Status")
       @Html.DropDownListFor(model => model.TreatStatus, new List<SelectListItem>
       { new SelectListItem{Text="Actice", Value="Actice"},

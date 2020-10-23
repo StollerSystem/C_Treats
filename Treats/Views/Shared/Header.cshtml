@@ -1,19 +1,19 @@
 <div id="header">
   <ul id="headerList">
-    <li id="headerUl">@Html.ActionLink("View Orders", "Index", "Orders")</li>
-    <li id="headerUl">@Html.ActionLink("View Flavors", "Index", "Flavors")</li>
-    <li id="headerUl">@Html.ActionLink("View Treats", "Index", "Treats")</li>  
+    <li class="headerUl">@Html.ActionLink("View Orders", "Index", "Orders")</li>
+    <li class="headerUl">@Html.ActionLink("View Flavors", "Index", "Flavors")</li>
+    <li class="headerUl">@Html.ActionLink("View Treats", "Index", "Treats")</li>  
     
-    <li id="headerUl">@Html.ActionLink("Accounts", "Index", "Account")</li> 
+    <li class="headerUl">@Html.ActionLink("Accounts", "Index", "Account")</li> 
 
-    @* <li>@User.Identity.Name</li>> *@
+    @* <li>@User.classentity.Name</li>> *@
 
 
     @* <li class="nav-item">
-      <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">@User.Identity.Name</a>
+      <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">@User.classentity.Name</a>
     </li> *@
 
     <a href="@Url.Action("", "/")">
-    <li id="homeImageUl"><img id="imageHome" src="~/img/HomeBtn.png"></a></li>
+    <li class="homeImageUl"><img id="imageHome" src="~/img/HomeBtn.png"></a></li>
   </ul>
 </div>

@@ -36,16 +36,20 @@ ul#headerList {
   border-bottom: solid #E5383B;  
 }
 
-li#headerUl {
+li.headerUl {
   float: right;
 }
 
-li#homeImageUl {
+li.headerUlL {
+  float: left;
+}
+
+li.homeImageUl {
   float: left;
   margin-left: 14%;
 }
 
-li#headerUl a {
+li.headerUl a {
   display: block;
   color: white;
   text-align: center;
@@ -53,7 +57,7 @@ li#headerUl a {
   text-decoration: none;
 }
 
-li#headerUl a:hover {
+li.headerUl a:hover {
   background-color: #E5383B;
   color: black;
 }
