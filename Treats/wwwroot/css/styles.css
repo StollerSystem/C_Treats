@@ -4,6 +4,7 @@ body, html {
   font-family: Arial, Helvetica, sans-serif;
   background-color:#218380;
   font-family: 'Oswald', sans-serif;
+  /* text-shadow: 1px 1px white; */
 }
 
 .container {
@@ -33,7 +34,7 @@ ul#headerList {
   padding-right: 12%;
   overflow: hidden;
   background-color: #0B090A;
-  border-bottom: solid #D81159;  
+  border-bottom: solid #FFBC42;  
 }
 
 li.headerUl {
@@ -92,7 +93,7 @@ h1 {
 #footer {
   background-color: black;
   height: 100px;
-  color: #660708;
+  color: #FFBC42;
   text-align: center;
 }
 
@@ -102,8 +103,8 @@ h1 {
 }
 
 .mainBox {
-  border: solid #D81159;
-  background-color: #FFBC42;
+  border: solid #FFBC42;
+  background-color: #73D2DE;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -123,16 +124,18 @@ h1 {
 
 .homeList {  
   text-align: center;  
+  color: #8F2D56;
 }
 
 .homeList ul {  
   border-width: 1px; 
   list-style: none;
   text-align: center;  
+  margin-right: 35px;
 }
 
 a {
-  color: black;
+  color: #D81159;
 }
 
 a:hover {
@@ -148,7 +151,7 @@ hr {
 }
 
 .card {
-  background-color: #FFBC42;  
+  background-color: #73D2DE;  
   border: solid #D81159;
   border-width: 2px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

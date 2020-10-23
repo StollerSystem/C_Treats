@@ -8,12 +8,12 @@
   <h1 id="homeTitle">Deluxe Treat Manager</h1>  
 </div>
 <hr />
-<h3 class="homeList">Treats Overview</h3>
+<h3 class="homeList"></h3>
   <div class="homeListBox">
     <div class="row">
       <div class="col-md-6 homeList"> 
         <div class="card">
-          <h2>Treats</h2>
+          <h2><u>Treats</u></h2>
           <ul>
           @if (@ViewBag.Treats.Count == 0)
           {
@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-6 homeList">
         <div class="card">
-          <h2>Flavors</h2>
+          <h2><u>Flavors</u></h2>
           <ul>
             @if (@ViewBag.Flavors.Count == 0)
           {
