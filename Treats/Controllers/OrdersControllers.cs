@@ -94,11 +94,11 @@ namespace Orders.Controllers
     }
     
     [HttpPost]
-    public ActionResult AddTreat(Order Order, int TreatId)
+    public ActionResult AddTreat(Order Order, int TreatId, int TreatQuantity)
     {
       if (TreatId != 0)
       {
-        _db.OrderTreats.Add(new OrderTreat() { TreatId = TreatId, OrderId = Order.OrderId });
+        _db.OrderTreats.Add(new OrderTreat() { TreatId = TreatId, OrderId = Order.OrderId, TreatQuantity = TreatQuantity});
       }
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Order.OrderId });

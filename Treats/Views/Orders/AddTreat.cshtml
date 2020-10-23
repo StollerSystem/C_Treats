@@ -12,9 +12,15 @@
       @Html.HiddenFor(model => model.OrderId)
 
       @Html.Label("Select Treat")
-      @Html.DropDownList("TreatId", null, "Please Select", htmlAttributes: new{required = "Please select an Treat"})
+      @Html.DropDownList("TreatId", null, "Please Select", htmlAttributes: new{required = "Please select a Treat"})
+
+      @Html.Label("Quantity")
+      @Html.TextBox("OrderQuantity",null,
+      new {@required="required", type="number", step="1", min="0"})
       
       <input type="submit" value="Add" class="btn btn-info btn-large" />
   }
-  <p>@Html.ActionLink("Show all Machines", "Index",null, null, new { @class = "btn btn-info btn-large" })</p>
+  <hr />
+  <p>@Html.ActionLink("Back to details", "Details", new { id = Model.OrderId}, new { @class = "btn btn-info btn-large" })</p>
+  <p>@Html.ActionLink("Show all Orders", "Index",null, null, new { @class = "btn btn-info btn-large" })</p>
 </div>
