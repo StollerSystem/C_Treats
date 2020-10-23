@@ -3,21 +3,22 @@
 }
 
 @using System.Security.Claims
-
-<h2>User Accounts</h2>
-<hr />
-@if (User.Identity.IsAuthenticated)
-{
-    <h3>Logged in as @User.Identity.Name</h3>
-    @using (Html.BeginForm("LogOff", "Account"))
+<div class="mainBox">
+    <h2>User Accounts</h2>
+    <hr />
+    @if (User.Identity.IsAuthenticated)
     {
-        <input type="submit" class="btn btn-default" value="Log out" />
+        <h3>Logged in as @User.Identity.Name</h3>
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+            <input type="submit" class="btn btn-default" value="Log out" />
+        }
     }
-}
-else
-{
-    <p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log in", "Login")</p>
-}
-<hr />
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+    else
+    {
+        <p>@Html.ActionLink("Register", "Register", null, null,  new { @class = "btn btn-info btn-sm" })</p>
+        <p>@Html.ActionLink("Log in", "Login", null, null,  new { @class = "btn btn-info btn-sm" })</p>
+    }
+    <hr />
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>

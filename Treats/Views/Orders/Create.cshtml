@@ -5,16 +5,16 @@
 @model Treats.Models.Order
 
 <div class="mainBox">
-  <h2>Add a new Order</h2>
+  <h2>Add a new order for user: @User.Identity.Name</h2>
   <hr />
   @using (Html.BeginForm())
   {
-      @Html.Label("Name")
+      @Html.Label("Order Name")
       @Html.TextBoxFor(model => model.OrderName, 
       new {@required="required"})
 
       
-      @Html.Label("Description")
+      @Html.Label("Order Description")
       @Html.TextBoxFor(model => model.OrderDescription, 
       new {@required="required"})
 
