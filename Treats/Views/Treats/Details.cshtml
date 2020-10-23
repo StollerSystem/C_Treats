@@ -37,6 +37,10 @@ else
   </ul>  
 }
   <hr />
+  @if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Add to order", "AddOrder", null, new { id = Model.TreatId }, new { @class = "btn btn-info btn-sm" })</p>
+}
   @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
 {
   <p>@Html.ActionLink("Add Flavor", "AddFlavor", null, new { id = Model.TreatId }, new { @class = "btn btn-info btn-sm" })</p>
@@ -44,4 +48,3 @@ else
   <p>@Html.ActionLink("Delete Treat", "Delete", null, new { id = Model.TreatId }, new { @class = "btn btn-info btn-sm" })</p>
 }
   <p>@Html.ActionLink("Back to Treat List", "Index",null, null, new { @class = "btn btn-info btn-sm" })</p>
-</div>

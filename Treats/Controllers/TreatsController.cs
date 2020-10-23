@@ -22,6 +22,7 @@ namespace Treats.Controllers
       _userManager = userManager;
       _db = db;
     }
+
     public ActionResult Index()
     {      
 
@@ -32,6 +33,7 @@ namespace Treats.Controllers
     {
       return View();
     }
+
     [Authorize (Roles = "Administrator")]
     [HttpPost]
     public async Task<ActionResult> Create(Treat Treat)
@@ -55,6 +57,7 @@ namespace Treats.Controllers
       var thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
       return View(thisTreat);
     }
+
     [Authorize (Roles = "Administrator")]
     [HttpPost]
     public ActionResult Edit(Treat Treat)
@@ -69,6 +72,7 @@ namespace Treats.Controllers
       var thisTreat = _db.Treats.FirstOrDefault(x => x.TreatId == id);
       return View(thisTreat);
     }
+
     [Authorize (Roles = "Administrator")]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
@@ -78,14 +82,16 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
     [Authorize (Roles = "Administrator")]
-    //  Flavor
+    //  Add Flavor 
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
+
     [Authorize (Roles = "Administrator")]
     [HttpPost]
     public ActionResult AddFlavor(Treat Treat, int FlavorId)
@@ -97,6 +103,7 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Treat.TreatId });
     }
+
     [Authorize (Roles = "Administrator")]
     [HttpPost]
     public ActionResult DeleteFlavor(int TreatId, int joinId)
@@ -114,6 +121,27 @@ namespace Treats.Controllers
       List<Treat> sortedList = model.OrderBy(o => o.TreatName).ToList();
       ViewBag.filterName = "Filtering by: "+name;
       return View("Index", sortedList);
+    }
+
+    // ADD TO ORDER
+    [Authorize]
+    public ActionResult AddOrder(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
+      ViewBag.OrderId = new SelectList(_db.Orders, "OrderId", "OrderName");
+      return View(thisTreat);
+    }
+
+    [Authorize]
+    [HttpPost]
+    public ActionResult AddOrder(Treat Treat, int OrderId)
+    {
+      if (OrderId != 0)
+      {
+        _db.OrderTreats.Add(new OrderTreat() { OrderId = OrderId, TreatId = Treat.TreatId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = Treat.TreatId });
     }
   }
 }

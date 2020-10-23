@@ -5,14 +5,14 @@
 @model Treats.Models.Treat
 
 <div class="mainBox">
-  <h2>Add a flavor to @Model.TreatName</h2>
+  <h2>Add this treat to order: @Model.TreatName</h2>
   <hr />
   @using (Html.BeginForm())
   {
       @Html.HiddenFor(model => model.TreatId)
 
-      @Html.Label("Select flavor")
-      @Html.DropDownList("FlavorId", null, "Please Select", htmlAttributes: new{required = "Please select a flavor"})
+      @Html.Label("Select order")
+      @Html.DropDownList("OrderId", null, "Please Select", htmlAttributes: new{required = "Please select an order"})
       
       <input type="submit" value="Add" class="btn btn-info btn-large" />
   }
