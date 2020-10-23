@@ -6,7 +6,7 @@ namespace Treats.Models
   {
     public Treat()
     {      
-      this.Flavors = new HashSet<TreatFlavors>();
+      this.Flavors = new HashSet<TreatFlavor>();
               
     }
     public int TreatId { get; set; }
@@ -14,7 +14,7 @@ namespace Treats.Models
     
     
     public virtual ApplicationUser User { get; set; } 
-    public virtual ICollection<TreatFlavors> Flavors { get; set; }
+    public virtual ICollection<TreatFlavor> Flavors { get; set; }
     
   }
 }

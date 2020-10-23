@@ -5,9 +5,9 @@ using System.IO;
 
 namespace Treats.Models
 {
-  public class TreatsContextTreats : IDesignTimeDbContextTreats<TreatsContext>
+  public class TreatsContextFactory : IDesignTimeDbContextFactory<TreatsContext>
   {
-    TreatsContext IDesignTimeDbContextTreats<TreatsContext>.CreateDbContext(string[] args)
+    TreatsContext IDesignTimeDbContextFactory<TreatsContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())

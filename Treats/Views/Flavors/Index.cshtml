@@ -3,7 +3,7 @@
 }
 
 @using Treats.Models;
-@model List<Factory.Models.Flavor>;
+@model List<Treats.Models.Flavor>;
 
 <div class="mainBox">
   <h2>Flavor Manager</h2>
@@ -17,7 +17,7 @@
       } 
       @foreach (Flavor Flavor in Model)
       {
-        <li><strong>@Html.ActionLink($"{Flavor.FlavorName}", "Details", new { id = Flavor.FlavorId }) | Status: @Flavor.FlavorStatus</li>
+        <li><strong>@Html.ActionLink($"{Flavor.FlavorName}", "Details", new { id = Flavor.FlavorId }) </li>
       }
     </ul>
   </div>

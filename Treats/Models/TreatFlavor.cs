@@ -1,4 +1,4 @@
-namespace Factory.Models
+namespace Treats.Models
 {
   public class TreatFlavor
   {

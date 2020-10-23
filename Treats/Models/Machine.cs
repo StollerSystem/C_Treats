@@ -19,4 +19,5 @@ namespace Treats.Models
 
     public virtual ICollection<TreatFlavor> Treats { get; set; }
     
+  }
 }

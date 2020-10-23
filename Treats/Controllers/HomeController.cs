@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Factory.Models;
+using Treats.Models;
 
-namespace Factory.Controllers
+namespace Treats.Controllers
 {
   public class HomeController : Controller
   {
-    private readonly FactoryContext _db;
-    public HomeController(FactoryContext db)
+    private readonly TreatsContext _db;
+    public HomeController(TreatsContext db)
     {
       _db = db;
     }
@@ -19,10 +19,10 @@ namespace Factory.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      List<Engineer> engineers = _db.Engineers.OrderBy(x => x.EngineerName).ToList();
-      List<Machine> machines = _db.Machines.OrderBy(x => x.MachineName).ToList();
-      ViewBag.engineers = engineers;
-      ViewBag.machines = machines;
+      List<Treat> Treats = _db.Treats.OrderBy(x => x.TreatName).ToList();
+      List<Flavor> Flavors = _db.Flavors.OrderBy(x => x.FlavorName).ToList();
+      ViewBag.Treats = Treats;
+      ViewBag.Flavors = Flavors;
       return View();
     }
   }

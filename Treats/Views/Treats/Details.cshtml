@@ -25,7 +25,7 @@ else
       {
       <li>@Html.ActionLink($"{join.Flavor.FlavorName}", "Details", "Flavors", new { id = join.Flavor.FlavorId })     <input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
       @Html.Hidden("TreatId", @join.TreatId)
-      @Html.Hidden("joinId", @join.TreatFlavorsId)      
+      @Html.Hidden("joinId", @join.TreatFlavorId)      
       }
     }
   </ul>  

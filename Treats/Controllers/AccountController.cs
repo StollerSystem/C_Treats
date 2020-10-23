@@ -1,18 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Factory.Models;
+using Treats.Models;
 using System.Threading.Tasks;
-using Factory.ViewModels;
 
-namespace Factory.Controllers
+using Treats.ViewModels;
+
+namespace Treats.Controllers
 {
   public class AccountController : Controller
   {
-    private readonly FactoryContext _db;
+    private readonly TreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, FactoryContext db)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, TreatsContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;

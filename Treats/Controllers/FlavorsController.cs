@@ -79,29 +79,29 @@ namespace Treats.Controllers
       return RedirectToAction("Index");
     }
 
-    // ENGINEER
-    public ActionResult AddEngineer(int id)
+    // Treat
+    public ActionResult AddTreat(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(Flavors => Flavors.FlavorId == id);
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
     [HttpPost]
-    public ActionResult AddEngineer(Flavor Flavor, int EngineerId)
+    public ActionResult AddTreat(Flavor Flavor, int TreatId)
     {
-      if (EngineerId != 0)
+      if (TreatId != 0)
       {
-        _db.FlavorEngineers.Add(new FlavorEngineer() { EngineerId = EngineerId, FlavorId = Flavor.FlavorId });
+        _db.TreatFlavors.Add(new TreatFlavor() { TreatId = TreatId, FlavorId = Flavor.FlavorId });
       }
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Flavor.FlavorId });
     }
 
     [HttpPost]
-    public ActionResult DeleteEngineer(int FlavorId, int joinId)
+    public ActionResult DeleteTreat(int FlavorId, int joinId)
     {
-      var joinEntry = _db.FlavorEngineers.FirstOrDefault(entry => entry.FlavorEngineerId == joinId);
-      _db.FlavorEngineers.Remove(joinEntry);
+      var joinEntry = _db.TreatFlavors.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      _db.TreatFlavors.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = FlavorId });
     }

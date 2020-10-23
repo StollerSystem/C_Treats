@@ -85,29 +85,29 @@ namespace Treats.Controllers
       return RedirectToAction("Index");
     }
 
-    //  MACHINE
-    public ActionResult AddMachine(int id)
+    //  Flavor
+    public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
     [HttpPost]
-    public ActionResult AddMachine(Treat Treat, int MachineId)
+    public ActionResult AddFlavor(Treat Treat, int FlavorId)
     {
-      if (MachineId != 0)
+      if (FlavorId != 0)
       {
-        _db.MachineTreats.Add(new MachineTreat() { MachineId = MachineId, TreatId = Treat.TreatId });
+        _db.TreatFlavors.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = Treat.TreatId });
       }
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Treat.TreatId });
     }
 
     [HttpPost]
-    public ActionResult DeleteMachine(int TreatId, int joinId)
+    public ActionResult DeleteFlavor(int TreatId, int joinId)
     {
-      var joinEntry = _db.MachineTreats.FirstOrDefault(entry => entry.MachineTreatId == joinId);
-      _db.MachineTreats.Remove(joinEntry);
+      var joinEntry = _db.TreatFlavors.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      _db.TreatFlavors.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = TreatId });
     }

@@ -1,4 +1,4 @@
-namespace Factory.ViewModels
+namespace Treats.ViewModels
 {
     public class LoginViewModel
     {

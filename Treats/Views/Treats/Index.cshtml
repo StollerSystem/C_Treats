@@ -3,7 +3,7 @@
 }
 
 @using Treats.Models;
-@model List<Factory.Models.Treat>;
+@model List<Treats.Models.Treat>;
 
 <div class="mainBox">
   <h2>Treat Manager</h2>
@@ -17,7 +17,7 @@
       } 
       @foreach (Treat Treat in Model)
       {
-        <li><strong>@Html.ActionLink($"{Treat.TreatName}", "Details", new { id = Treat.TreatId }) | Status: @Treat.TreatStatus</li>
+        <li><strong>@Html.ActionLink($"{Treat.TreatName}", "Details", new { id = Treat.TreatId }) </li>
       }
     </ul>
   </div>
