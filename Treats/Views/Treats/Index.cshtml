@@ -29,6 +29,9 @@
     @Html.ActionLink("Show all Treats", "Index", null, null, new { @class = "btn btn-info btn-sm" })
   }
   <hr />
+  @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+{
   <p>@Html.ActionLink("Add new Treat", "Create", null, null, new { @class = "btn btn-info btn-large" })</p>
+}
   <p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>
