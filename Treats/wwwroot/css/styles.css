@@ -1,0 +1,160 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#B1A7A6;
+  font-family: 'Jockey One', sans-serif;
+}
+
+.container {
+  background-color:#B1A7A6;
+  padding: 10px;
+  height: 90%;  
+}
+
+div#header {
+  height: 80px;
+}
+
+#imageHome {
+  width: 32px;
+  margin-top: 4px;
+}
+
+#imageHome:hover {
+  background: #E5383B;
+  border-radius: 5px;
+}
+
+ul#headerList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-right: 12%;
+  overflow: hidden;
+  background-color: #0B090A;
+  border-bottom: solid #E5383B;  
+}
+
+li#headerUl {
+  float: right;
+}
+
+li#homeImageUl {
+  float: left;
+  margin-left: 14%;
+}
+
+li#headerUl a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li#headerUl a:hover {
+  background-color: #E5383B;
+  color: black;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 50px;  
+}
+
+.btn {
+ background-color: #A4161A;
+ margin: 2px;
+ margin-left: 0px;
+ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.homeImage {
+  background-color: #B1A7A6;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://blogs.3ds.com/delmia/wp-content/uploads/sites/24/2015/08/The-Bigger-the-Better-How-to-Get-More-ROI-on-Manufacturing-Machinery.jpg");
+  border: solid #E5383B;  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 5px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#footer {
+  background-color: black;
+  height: 100px;
+  color: #660708;
+  text-align: center;
+}
+
+.col-md-4 {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.mainBox {
+  border: solid #E5383B;
+  background-color: #D3D3D3;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.lists {
+  border: solid #E5383B;;
+  border-width: 1px;
+  margin-bottom: 8px;  
+  padding-top: 10px;
+}
+
+.delete {
+  background-color: tomato;
+  margin: 2px;
+  margin-left: 0px;
+}
+
+.homeList {  
+  text-align: center;  
+}
+
+.homeList ul {  
+  border-width: 1px; 
+  list-style: none;
+  text-align: center;  
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: rgb(0, 217, 255);
+}
+
+.homeListBox {
+  height: 500px;  
+}
+
+hr {
+  border-color: #E5383B;
+}
+
+.card {
+  background-color: #D3D3D3;  
+  border: solid #E5383B;
+  border-width: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
+}
+
+#homeTitle {
+  font-size: 700%;
+}

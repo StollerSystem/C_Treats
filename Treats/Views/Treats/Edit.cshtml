@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<div class="mainBox">
+  <h2>Edit Engineer</h2>
+  <hr />
+  <h4>Edit this Engineer @Html.DisplayFor(model => model.EngineerName)</h4>
+  @using (Html.BeginForm())
+  {
+      @Html.HiddenFor(model => model.EngineerId)
+      @Html.LabelFor(model => model.EngineerName)
+      @Html.TextBoxFor(model => model.EngineerName, 
+      new {@required="required"})
+
+      @Html.Label("Status")
+      @Html.DropDownListFor(model => model.EngineerStatus, new List<SelectListItem>
+      { new SelectListItem{Text="Actice", Value="Actice"},
+      new SelectListItem{Text="Idle", Value="Idle"},       
+      },"Please select", htmlAttributes: new{required = "Please select a stylist"})
+     
+      <input type="submit" value="Save" />
+  }
+  <hr />
+  <p>@Html.ActionLink("Back to list", "Index",null,null, new { @class = "btn btn-info btn-large" })</p>
+</div>

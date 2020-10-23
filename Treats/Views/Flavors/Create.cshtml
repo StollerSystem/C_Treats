@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<div class="mainBox">
+  <h2>Add a new Machine</h2>
+  <hr />
+  @using (Html.BeginForm())
+  {
+      @Html.Label("Machine Name")
+      @Html.TextBoxFor(model => model.MachineName, 
+      new {@required="required"})
+
+      @Html.Label("Status")
+      @Html.DropDownListFor(model => model.MachineStatus, new List<SelectListItem>
+      { new SelectListItem{Text="Operational", Value="Operational"},
+      new SelectListItem{Text="Malfunctioning", Value="Malfunctioning"}, 
+      new SelectListItem{Text="Under Repair", Value="Under Repair"},      
+      },"Please select", htmlAttributes: new{required = "Please select a stylist"})
+
+      @Html.Label("Next Inspection Date")
+      @Html.TextBoxFor(model => model.InspectionDate, 
+      new {@required="required", type="date"})
+
+      <input type="submit" value="Create Machine" class="btn btn-info btn-large" />
+  }
+  <hr />
+  <p>@Html.ActionLink("Show all Machines", "Index",null, null, new { @class = "btn btn-info btn-large" })</p>
+</div>

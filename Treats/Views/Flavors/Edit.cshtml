@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<div class="mainBox">
+  <h2>Edit Machine</h2>
+  <hr />
+  <h4>Edit this Machine @Html.DisplayFor(model => model.MachineName)</h4>
+  @using (Html.BeginForm())
+  {
+      @Html.HiddenFor(model => model.MachineId)
+      @Html.LabelFor(model => model.MachineName)
+      @Html.TextBoxFor(model => model.MachineName, 
+      new {@required="required"})
+
+      @Html.Label("Status")
+      @Html.DropDownListFor(model => model.MachineStatus, new List<SelectListItem>
+      { new SelectListItem{Text="Operational", Value="Operational"},
+      new SelectListItem{Text="Malfunctioning", Value="Malfunctioning"}, 
+      new SelectListItem{Text="Under Repair", Value="Under Repair"},      
+      },"Please select", htmlAttributes: new{required = "Please select a stylist"})
+
+      @Html.Label("Next Inspection Date")
+      @Html.TextBoxFor(model => model.InspectionDate, 
+      new {@required="required", type="date"})
+     
+      <input type="submit" value="Save" />
+  }
+  <hr />
+  <p>@Html.ActionLink("Back to list", "Index",null,null, new { @class = "btn btn-info btn-large" })</p>
+</div>

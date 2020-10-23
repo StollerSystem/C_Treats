@@ -1,0 +1,34 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model List<Factory.Models.Machine>;
+
+<div class="mainBox">
+  <h2>Machine Manager</h2>
+  <hr />
+  <h4>@ViewBag.filterName</h4>
+  <div class="lists">
+    <ul >
+      @if (@Model.Count == 0)
+      {
+        <li><strong>No Machines found</strong></li>
+      } 
+      @foreach (Machine machine in Model)
+      {
+        <li><strong>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId }) | Status: @machine.MachineStatus</li>
+      }
+    </ul>
+  </div>
+  @using (Html.BeginForm())
+  {  
+    <label for="Name">Filter by machine name:</label>
+    <input type="text" id="Name" name="name" required> 
+    <input type="submit" value="Filter" class="btn btn-info btn-sm"/> 
+    @Html.ActionLink("Show all Machines", "Index", null, null, new { @class = "btn btn-info btn-sm" })
+  }
+  <hr />
+  <p>@Html.ActionLink("Add new Machine", "Create", null, null, new { @class = "btn btn-info btn-large" })</p>
+  <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>
