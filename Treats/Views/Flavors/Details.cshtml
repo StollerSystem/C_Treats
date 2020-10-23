@@ -23,7 +23,12 @@
       {
         @using (Html.BeginForm("DeleteTreat", "Flavors"))
         {
-        <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", "Treats", new { id = join.Treat.TreatId })     <input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
+        <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", "Treats", new { id = join.Treat.TreatId })     
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+        {  
+        <input type="submit" value="Remove" class="btn btn-warning btn-sm" />        
+        }
+        </li>
         @Html.Hidden("FlavorId", @join.FlavorId)
         @Html.Hidden("joinId", @join.TreatFlavorId)      
         }
@@ -33,8 +38,11 @@
   
   
   <hr />
+  @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+  {
   <p>@Html.ActionLink("Add to Treat", "AddTreat", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
   <p>@Html.ActionLink("Edit Flavor", "Edit", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
   <p>@Html.ActionLink("Delete Flavor", "Delete", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
+  }
   <p>@Html.ActionLink("Back to Flavor List", "Index",null, null, new { @class = "btn btn-info btn-sm" })</p>
 </div>
