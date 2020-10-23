@@ -13,7 +13,7 @@ using System.Security.Claims;
 
 namespace Treats.Controllers
 {
-  [Authorize]
+  // [Authorize]
   public class FlavorsController : Controller
   {
     private readonly TreatsContext _db;
@@ -23,13 +23,16 @@ namespace Treats.Controllers
       _userManager = userManager;
       _db = db;
     }
-    public async Task <ActionResult> Index()
+
+    public ActionResult Index()
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      List<Flavor> model = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      // var currentUser = await _userManager.FindByIdAsync(userId);
+      // List<Flavor> model = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      List<Flavor> model = _db.Flavors.OrderBy(x => x.FlavorName).ToList();
       return View(model);
     }
+    [Authorize]
     public ActionResult Create()
     {
       return View();
@@ -44,18 +47,19 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
     public ActionResult Details(int id)
     {
       Flavor model = _db.Flavors.FirstOrDefault(Flavor => Flavor.FlavorId == id);
       return View(model);
     }
-
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(Flavor => Flavor.FlavorId == id);
       return View(thisFlavor);
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult Edit(Flavor Flavor)
     {
@@ -63,13 +67,13 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(x => x.FlavorId == id);
       return View(thisFlavor);
     }
-
+    [Authorize]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
@@ -78,7 +82,7 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [Authorize]
     // Treat
     public ActionResult AddTreat(int id)
     {
@@ -86,6 +90,7 @@ namespace Treats.Controllers
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
+    [Authorize]
     [HttpPost]
     public ActionResult AddTreat(Flavor Flavor, int TreatId)
     {
@@ -96,7 +101,7 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Flavor.FlavorId });
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult DeleteTreat(int FlavorId, int joinId)
     {
