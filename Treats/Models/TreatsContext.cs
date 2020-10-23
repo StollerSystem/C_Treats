@@ -9,6 +9,9 @@ namespace Treats.Models
 
     public DbSet<Flavor> Flavors { get; set; }
 
+    public DbSet<Order> Orders { get; set; }
+
+    public DbSet<OrderTreat> OrderTreats { get; set; }
     
     public DbSet<TreatFlavor> TreatFlavors { get; set; }
 

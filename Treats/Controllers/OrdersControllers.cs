@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Orders.Models;
+using Treats.Models;
 // /new using directives
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -16,9 +16,9 @@ namespace Orders.Controllers
   // [Authorize] //new line
   public class OrdersController : Controller
   {
-    private readonly OrdersContext _db;
+    private readonly TreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager; //new line
-    public OrdersController(UserManager<ApplicationUser> userManager, OrdersContext db)
+    public OrdersController(UserManager<ApplicationUser> userManager, TreatsContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -85,30 +85,30 @@ namespace Orders.Controllers
       return RedirectToAction("Index");
     }
     [Authorize]
-    //  Flavor
-    public ActionResult AddFlavor(int id)
+    //  Treat
+    public ActionResult AddTreat(int id)
     {
       var thisOrder = _db.Orders.FirstOrDefault(Orders => Orders.OrderId == id);
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisOrder);
     }
     [Authorize]
     [HttpPost]
-    public ActionResult AddFlavor(Order Order, int FlavorId)
+    public ActionResult AddTreat(Order Order, int TreatId)
     {
-      if (FlavorId != 0)
+      if (TreatId != 0)
       {
-        _db.OrderFlavors.Add(new OrderFlavor() { FlavorId = FlavorId, OrderId = Order.OrderId });
+        _db.OrderTreats.Add(new OrderTreat() { TreatId = TreatId, OrderId = Order.OrderId });
       }
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = Order.OrderId });
     }
     [Authorize]
     [HttpPost]
-    public ActionResult DeleteFlavor(int OrderId, int joinId)
+    public ActionResult DeleteTreat(int OrderId, int joinId)
     {
-      var joinEntry = _db.OrderFlavors.FirstOrDefault(entry => entry.OrderFlavorId == joinId);
-      _db.OrderFlavors.Remove(joinEntry);
+      var joinEntry = _db.OrderTreats.FirstOrDefault(entry => entry.OrderTreatId == joinId);
+      _db.OrderTreats.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = OrderId });
     }

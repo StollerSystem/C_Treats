@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 
-namespace Orders.Models
+namespace Treats.Models
 {
   public class Order
   {
     public Order()
-    {      
-      this.Flavors = new HashSet<OrderFlavor>();
-      this.Orders = new HashSet<OrderFlavor>();
+    {            
+      this.Treats = new HashSet<OrderTreat>();
               
     }
     public int OrderId { get; set; }
