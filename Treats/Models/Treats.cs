@@ -10,10 +10,13 @@ namespace Treats.Models
               
     }
     public int TreatId { get; set; }
-    public string TreatName { get; set; }    
-    
+
+    public string TreatName { get; set; }   
+
+    public string TreatDescription { get; set; }      
     
     public virtual ApplicationUser User { get; set; } 
+    
     public virtual ICollection<TreatFlavor> Flavors { get; set; }
     
   }
