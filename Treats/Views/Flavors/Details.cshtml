@@ -8,16 +8,16 @@
   <h2>Flavor Details</h2>
   <hr />
   <h3>Name: @Html.DisplayFor(model => model.FlavorName)</h3>
-  @* <h4>Status:  @Html.DisplayFor(model => model.FlavorStatus)</h4>
-  <h4>Next inspection date: @Html.DisplayFor(model => model.InspectionDate)</h4> *@
+   <h4>Description:  @Html.DisplayFor(model => model.FlavorDescription)</h4>
+  
   @if (@Model.Treats.Count == 0)
   {
-    <p>No Treats are assigned to this Flavor.</p>
+    <p>No treats include this Flavor.</p>
   }
   else
   {
     <hr />
-    <h4>Treats assigned to this Flavor:</h4>
+    <h4>Treats including this Flavor:</h4>
     <ul>
       @foreach (var join in Model.Treats)
       {
@@ -33,7 +33,7 @@
   
   
   <hr />
-  <p>@Html.ActionLink("Add Licensed Treat", "AddTreat", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
+  <p>@Html.ActionLink("Add to Treat", "AddTreat", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
   <p>@Html.ActionLink("Edit Flavor", "Edit", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
   <p>@Html.ActionLink("Delete Flavor", "Delete", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
   <p>@Html.ActionLink("Back to Flavor List", "Index",null, null, new { @class = "btn btn-info btn-sm" })</p>

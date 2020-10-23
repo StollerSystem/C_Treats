@@ -8,16 +8,16 @@
   <h2>Treat Details</h2>
   <hr />
   <h3>Name: @Html.DisplayFor(model => model.TreatName) </h3>
-  @* <h4>Status: @Html.DisplayFor(model => model.TreatStatus)</h4> *@
+  <h4>Description: @Html.DisplayFor(model => model.TreatDescription)</h4>
   
   <hr />
   @if (@Model.Flavors.Count == 0)
 {
-  <p>This Treat is not assigned any Flavors.</p>
+  <p>This Treat does not include any Flavors.</p>
 }
 else
 {
-  <h3>Flavors assigned to this Treat:</h3>
+  <h3>Flavors this treat includes:</h3>
   <ul>
     @foreach (var join in Model.Flavors)
     {

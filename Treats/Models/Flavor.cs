@@ -11,9 +11,9 @@ namespace Treats.Models
     }
     public int FlavorId { get; set; }
 
-    public string FlavorName { get; set; }    
+    public string FlavorName { get; set; }   
 
-    
+    public string FlavorDescription { get; set; }      
    
     public virtual ApplicationUser User { get; set; } 
 

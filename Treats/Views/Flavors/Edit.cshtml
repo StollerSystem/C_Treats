@@ -11,8 +11,12 @@
   @using (Html.BeginForm())
   {
       @Html.HiddenFor(model => model.FlavorId)
-      @Html.LabelFor(model => model.FlavorName)
+      @Html.Label("Name")
       @Html.TextBoxFor(model => model.FlavorName, 
+      new {@required="required"})
+
+      @Html.Label("Description")
+      @Html.TextBoxFor(model => model.FlavorDescription, 
       new {@required="required"})
 
       @* @Html.Label("Status")
