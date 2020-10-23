@@ -2,13 +2,14 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color:#218380;
+  background-color:#fff3c3d9;
   font-family: 'Oswald', sans-serif;
+  color: #292929;
   /* text-shadow: 1px 1px white; */
 }
 
 .container {
-  background-color:#218380;
+  background-color:#fff3c3d9;
   padding: 10px;
   height: 90%;  
 }
@@ -23,7 +24,7 @@ div#header {
 }
 
 #imageHome:hover {
-  background: #D81159;
+  background: #EE964B;
   border-radius: 5px;
 }
 
@@ -33,8 +34,8 @@ ul#headerList {
   padding: 0;
   padding-right: 12%;
   overflow: hidden;
-  background-color: #0B090A;
-  border-bottom: solid #FFBC42;  
+  background-color: #0D3B66;
+  border-bottom: solid #F4D35E;  
 }
 
 li.headerUl {
@@ -59,7 +60,7 @@ li.headerUl a {
 }
 
 li.headerUl a:hover {
-  background-color: #D81159;
+  background-color: #EE964B;
   color: black;
 }
 
@@ -70,7 +71,7 @@ h1 {
 }
 
 .btn {
- background-color: #8F2D56;
+ background-color: #F95738;
  margin: 2px;
  margin-left: 0px;
  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -79,21 +80,22 @@ h1 {
 .homeImage {
   background-color: #B1A7A6;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i0.wp.com/nyunews.com/wp-content/uploads/10-22-pie1.jpg?fit=600%2C400&ssl=1");
-  border: solid #D81159;  
+  border: solid #F95738;  
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   padding: 5px;
-  padding-top: 75px;
-  padding-bottom: 75px;
+  padding-top: 110px;
+  padding-bottom: 110px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 #footer {
-  background-color: black;
+  background-color: #0D3B66;
   height: 100px;
-  color: #FFBC42;
+  color:white;
+  /* margin-top: 500px; */
   text-align: center;
 }
 
@@ -103,14 +105,14 @@ h1 {
 }
 
 .mainBox {
-  border: solid #FFBC42;
-  background-color: #73D2DE;
+  border: solid #0D3B66;
+  background-color:white;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .lists {
-  border: solid #D81159;;
+  border: solid #0D3B66;;
   border-width: 1px;
   margin-bottom: 8px;  
   padding-top: 10px;
@@ -124,7 +126,7 @@ h1 {
 
 .homeList {  
   text-align: center;  
-  color: #8F2D56;
+  /* color: #8F2D56; */
 }
 
 .homeList ul {  
@@ -135,7 +137,7 @@ h1 {
 }
 
 a {
-  color: #D81159;
+  color: #F95738;
 }
 
 a:hover {
@@ -147,12 +149,12 @@ a:hover {
 }
 
 hr {
-  border-color: #D81159;
+  border-color: #0D3B66;
 }
 
 .card {
-  background-color: #73D2DE;  
-  border: solid #D81159;
+  background-color: white;  
+  border: solid #0D3B66;
   border-width: 2px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;

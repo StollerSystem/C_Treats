@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace Treats.Controllers
 {
-  // [Authorize]
+  
   public class FlavorsController : Controller
   {
     private readonly TreatsContext _db;
@@ -79,7 +79,7 @@ namespace Treats.Controllers
       return RedirectToAction("Index");
     }
     [Authorize(Roles = "Administrator")]
-    // Treat
+    
     public ActionResult AddTreat(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(Flavors => Flavors.FlavorId == id);
@@ -107,7 +107,7 @@ namespace Treats.Controllers
       return RedirectToAction("Details", new { id = FlavorId });
     }
 
-    [HttpPost] // SEARCH
+    [HttpPost] 
     public ActionResult Index(string name)
     {
       List<Flavor> model = _db.Flavors.Where(x => x.FlavorName.Contains(name)).ToList();      

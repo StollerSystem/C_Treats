@@ -1,6 +1,6 @@
 # _MVC Sweets and Treats_
 
-#### _An app to market sweet and savory treats!, 10/23/20_
+#### _An app to market sweet and savory treats! 10/23/20_
 
 #### By _**Ben Stoller**_
 

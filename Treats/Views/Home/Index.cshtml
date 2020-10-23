@@ -5,7 +5,7 @@
 @using Treats.Models; 
 
 <div class="homeImage">
-  <h1 id="homeTitle">Deluxe Treat Manager</h1>  
+  <h1 id="homeTitle">Sweet and Savory Treats</h1>  
 </div>
 @* <hr /> *@
 <h3 class="homeList"></h3>
@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-6 homeList"> 
         <div class="card">
-          <h2><u>Treats</u></h2>
+          <h2><u>Treats!</u></h2>
           <ul>
           @if (@ViewBag.Treats.Count == 0)
           {
@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-6 homeList">
         <div class="card">
-          <h2><u>Flavors</u></h2>
+          <h2><u>Flavors!</u></h2>
           <ul>
             @if (@ViewBag.Flavors.Count == 0)
           {
