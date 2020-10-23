@@ -10,6 +10,7 @@
   @using (Html.BeginForm())
   {
       @Html.HiddenFor(model => model.TreatId)
+      @Html.HiddenFor(model => model.TreatName)
 
       @Html.Label("Select order")
       @Html.DropDownList("OrderId", null, "Please Select", htmlAttributes: new{required = "Please select an order"})

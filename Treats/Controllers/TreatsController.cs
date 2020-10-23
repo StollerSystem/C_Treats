@@ -138,6 +138,7 @@ namespace Treats.Controllers
     [HttpPost]
     public ActionResult AddOrder(Treat treat, int OrderId, int TreatQuantity)
     {
+      // System.Console.WriteLine("test name"+treat.TreatName);
       string confirmation = $"{TreatQuantity} {treat.TreatName} added to your order!";
       if (OrderId != 0)
       {
