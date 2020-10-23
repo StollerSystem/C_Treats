@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Treats.Models.Order
+
+<div class="mainBox">
+  <h2>Add a Treat to @Model.OrderName</h2>
+  <hr />
+  @using (Html.BeginForm())
+  {
+      @Html.HiddenFor(model => model.OrderId)
+
+      @Html.Label("Select Treat")
+      @Html.DropDownList("TreatId", null, "Please Select", htmlAttributes: new{required = "Please select an Treat"})
+      
+      <input type="submit" value="Add" class="btn btn-info btn-large" />
+  }
+  <p>@Html.ActionLink("Show all Machines", "Index",null, null, new { @class = "btn btn-info btn-large" })</p>
+</div>

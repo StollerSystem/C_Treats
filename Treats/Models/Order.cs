@@ -7,6 +7,7 @@ namespace Orders.Models
     public Order()
     {      
       this.Flavors = new HashSet<OrderFlavor>();
+      this.Orders = new HashSet<OrderFlavor>();
               
     }
     public int OrderId { get; set; }
@@ -17,7 +18,6 @@ namespace Orders.Models
     
     public virtual ApplicationUser User { get; set; } 
     
-    public virtual ICollection<OrderTreat> Treats { get; set; }
-    
+    public virtual ICollection<OrderTreat> Treats { get; set; }    
   }
 }

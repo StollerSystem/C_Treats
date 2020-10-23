@@ -1,0 +1,34 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Treats.Models.Order
+
+<div class="mainBox">
+  <h2>Edit Order</h2>
+  <hr />
+  <h4>Edit this Order @Html.DisplayFor(model => model.OrderName)</h4>
+  @using (Html.BeginForm())
+  {
+      @Html.HiddenFor(model => model.OrderId)
+      @Html.Label("Name")
+      @Html.TextBoxFor(model => model.OrderName, 
+      new {@required="required"})
+
+      
+      @Html.Label("Description")
+      @Html.TextBoxFor(model => model.OrderDescription, 
+      new {@required="required"})
+
+      @* @Html.Label("Status")
+      @Html.DropDownListFor(model => model.OrderStatus, new List<SelectListItem>
+      { new SelectListItem{Text="Actice", Value="Actice"},
+      new SelectListItem{Text="Idle", Value="Idle"},       
+      },"Please select", htmlAttributes: new{required = "Please select a stylist"}) *@
+     
+      <input type="submit" value="Save" />
+  }
+  <hr />
+  <p></p>@Html.ActionLink("Back to details", "Details", new { id = Model.OrderId}, new { @class = "btn btn-info btn-large" })</p>
+  <p>@Html.ActionLink("Back to list", "Index",null,null, new { @class = "btn btn-info btn-large" })</p>
+</div>

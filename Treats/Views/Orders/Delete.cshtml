@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Treats.Models.Order
+
+<div class="mainBox">
+  <h2>Are you sure you want to delete Order <strong>@Html.DisplayFor(model => model.OrderName)</strong>?</h2>
+  <hr />  
+  @using (Html.BeginForm())
+  {
+      <input type="submit" value="Delete!" class="delete" />
+  }
+  @Html.ActionLink("Back to Orders", "Index",null,null, new { @class = "btn btn-info btn-large" })
+</div>
