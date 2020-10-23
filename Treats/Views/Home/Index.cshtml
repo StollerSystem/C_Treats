@@ -2,41 +2,41 @@
   Layout = "_Layout";
 }
 
-@using Factory.Models; 
+@using Treats.Models; 
 
 <div class="homeImage">
-  <h1 id="homeTitle">Deluxe Factory Manager</h1>  
+  <h1 id="homeTitle">Deluxe Treat Manager</h1>  
 </div>
 <hr />
-<h3 class="homeList">Factory Overview</h3>
+<h3 class="homeList">Treats Overview</h3>
   <div class="homeListBox">
     <div class="row">
       <div class="col-md-6 homeList"> 
         <div class="card">
-          <h2>Machines</h2>
+          <h2>Treats</h2>
           <ul>
-          @if (@ViewBag.machines.Count == 0)
+          @if (@ViewBag.Treats.Count == 0)
           {
-            <li><strong>No Machines found</strong></li>
+            <li><strong>No Treats found</strong></li>
           } 
-          @foreach (Machine machine in @ViewBag.machines)
+          @foreach (Treat Treat in @ViewBag.Treats)
           {
-            <li><strong>@Html.ActionLink($"{machine.MachineName}", "Details", "Machines", new { id = machine.MachineId }) | Status: @machine.MachineStatus</li>
+            <li><strong>@Html.ActionLink($"{Treat.TreatName}", "Details", "Treats", new { id = Treat.TreatId }) | Status: @Treat.TreatStatus</li>
           }
           </ul>
         </div>
       </div>
       <div class="col-md-6 homeList">
         <div class="card">
-          <h2>Repair Engineers</h2>
+          <h2>Flavors</h2>
           <ul>
-            @if (@ViewBag.engineers.Count == 0)
+            @if (@ViewBag.Flavors.Count == 0)
           {
-            <li><strong>No Engineers found</strong></li>
+            <li><strong>No Flavors found</strong></li>
           } 
-          @foreach (Engineer engineer in @ViewBag.engineers)
+          @foreach (Flavor Flavor in @ViewBag.Flavors)
           {
-            <li><strong>@Html.ActionLink($"{engineer.EngineerName}", "Details", "engineers", new { id = engineer.EngineerId }) | Status: @engineer.EngineerStatus</li>
+            <li><strong>@Html.ActionLink($"{Flavor.FlavorName}", "Details", "Flavors", new { id = Flavor.FlavorId }) | Status: @Flavor.FlavorStatus</li>
           }
           </ul>
         </div>
@@ -45,10 +45,10 @@
   <hr />
   <div class="row homeList">
     <div class="col-md-6">
-        <p>@Html.ActionLink("Machine Manager", "Index", "Machines", null, new { @class = "btn btn-info btn-large" })</p>
+        <p>@Html.ActionLink("Treat Manager", "Index", "Treats", null, new { @class = "btn btn-info btn-large" })</p>
     </div>    
     <div class="col-md-6">
-        <p>@Html.ActionLink("Engineer Manager", "Index", "Engineers", null, new { @class = "btn btn-info btn-large" })</p>    
+        <p>@Html.ActionLink("Flavor Manager", "Index", "Flavors", null, new { @class = "btn btn-info btn-large" })</p>    
     </div> 
   </div>
 </div>

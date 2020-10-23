@@ -2,17 +2,17 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer
+@model Treats.Models.Treat
 
 <div class="mainBox">
-  <h2>Add a machine to this Machine</h2>
+  <h2>Add a flavor to this treat</h2>
   <hr />
   @using (Html.BeginForm())
   {
-      @Html.HiddenFor(model => model.EngineerId)
+      @Html.HiddenFor(model => model.TreatId)
 
-      @Html.Label("Select Machine")
-      @Html.DropDownList("MachineId", null, "Please Select", htmlAttributes: new{required = "Please select an Machine"})
+      @Html.Label("Select flavor")
+      @Html.DropDownList("FlavorId", null, "Please Select", htmlAttributes: new{required = "Please select an flavor"})
       
       <input type="submit" value="Add" class="btn btn-info btn-large" />
   }

@@ -2,24 +2,24 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer
+@model Treats.Models.Treat
 
 <div class="mainBox">
-  <h2>Edit Engineer</h2>
+  <h2>Edit Treat</h2>
   <hr />
-  <h4>Edit this Engineer @Html.DisplayFor(model => model.EngineerName)</h4>
+  <h4>Edit this Treat @Html.DisplayFor(model => model.TreatName)</h4>
   @using (Html.BeginForm())
   {
-      @Html.HiddenFor(model => model.EngineerId)
-      @Html.LabelFor(model => model.EngineerName)
-      @Html.TextBoxFor(model => model.EngineerName, 
+      @Html.HiddenFor(model => model.TreatId)
+      @Html.LabelFor(model => model.TreatName)
+      @Html.TextBoxFor(model => model.TreatName, 
       new {@required="required"})
 
-      @Html.Label("Status")
-      @Html.DropDownListFor(model => model.EngineerStatus, new List<SelectListItem>
+      @* @Html.Label("Status")
+      @Html.DropDownListFor(model => model.TreatStatus, new List<SelectListItem>
       { new SelectListItem{Text="Actice", Value="Actice"},
       new SelectListItem{Text="Idle", Value="Idle"},       
-      },"Please select", htmlAttributes: new{required = "Please select a stylist"})
+      },"Please select", htmlAttributes: new{required = "Please select a stylist"}) *@
      
       <input type="submit" value="Save" />
   }

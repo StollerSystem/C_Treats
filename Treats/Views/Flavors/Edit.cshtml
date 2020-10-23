@@ -2,29 +2,29 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Machine
+@model Treats.Models.Flavor
 
 <div class="mainBox">
-  <h2>Edit Machine</h2>
+  <h2>Edit Flavor</h2>
   <hr />
-  <h4>Edit this Machine @Html.DisplayFor(model => model.MachineName)</h4>
+  <h4>Edit this Flavor @Html.DisplayFor(model => model.FlavorName)</h4>
   @using (Html.BeginForm())
   {
-      @Html.HiddenFor(model => model.MachineId)
-      @Html.LabelFor(model => model.MachineName)
-      @Html.TextBoxFor(model => model.MachineName, 
+      @Html.HiddenFor(model => model.FlavorId)
+      @Html.LabelFor(model => model.FlavorName)
+      @Html.TextBoxFor(model => model.FlavorName, 
       new {@required="required"})
 
-      @Html.Label("Status")
-      @Html.DropDownListFor(model => model.MachineStatus, new List<SelectListItem>
+      @* @Html.Label("Status")
+      @Html.DropDownListFor(model => model.FlavorStatus, new List<SelectListItem>
       { new SelectListItem{Text="Operational", Value="Operational"},
       new SelectListItem{Text="Malfunctioning", Value="Malfunctioning"}, 
       new SelectListItem{Text="Under Repair", Value="Under Repair"},      
-      },"Please select", htmlAttributes: new{required = "Please select a stylist"})
+      },"Please select", htmlAttributes: new{required = "Please select a stylist"}) *@
 
-      @Html.Label("Next Inspection Date")
+      @* @Html.Label("Next Inspection Date")
       @Html.TextBoxFor(model => model.InspectionDate, 
-      new {@required="required", type="date"})
+      new {@required="required", type="date"}) *@
      
       <input type="submit" value="Save" />
   }

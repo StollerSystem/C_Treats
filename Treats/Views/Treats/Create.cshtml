@@ -2,24 +2,24 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer
+@model Treats.Models.Treat
 
 <div class="mainBox">
-  <h2>Add a new Engineer</h2>
+  <h2>Add a new Treat</h2>
   <hr />
   @using (Html.BeginForm())
   {
       @Html.Label("Name")
-      @Html.TextBoxFor(model => model.EngineerName, 
+      @Html.TextBoxFor(model => model.TreatName, 
       new {@required="required"})
 
-      @Html.Label("Status")
-      @Html.DropDownListFor(model => model.EngineerStatus, new List<SelectListItem>
+      @* @Html.Label("Status")
+      @Html.DropDownListFor(model => model.TreatStatus, new List<SelectListItem>
       { new SelectListItem{Text="Actice", Value="Actice"},
       new SelectListItem{Text="Idle", Value="Idle"},       
-      },"Please select", htmlAttributes: new{required = "Please select a stylist"})
+      },"Please select", htmlAttributes: new{required = "Please select a stylist"}) *@
 
-      <input type="submit" value="Create Engineer" class="btn btn-info btn-large" />
+      <input type="submit" value="Create Treat" class="btn btn-info btn-large" />
   }
-  <p>@Html.ActionLink("Show all Engineers", "Index",null, null, new { @class = "btn btn-info btn-large" })</p>
+  <p>@Html.ActionLink("Show all Treats", "Index",null, null, new { @class = "btn btn-info btn-large" })</p>
 </div>

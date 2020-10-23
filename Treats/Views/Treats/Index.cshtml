@@ -2,22 +2,22 @@
   Layout = "_Layout";
 }
 
-@using Factory.Models;
-@model List<Factory.Models.Engineer>;
+@using Treats.Models;
+@model List<Factory.Models.Treat>;
 
 <div class="mainBox">
-  <h2>Engineer Manager</h2>
+  <h2>Treat Manager</h2>
   <hr />
   <h4>@ViewBag.filterName</h4>
   <div class="lists">
     <ul >
       @if (@Model.Count == 0)
       {
-        <li><strong>No Engineers found</strong></li>
+        <li><strong>No Treats found</strong></li>
       } 
-      @foreach (Engineer Engineer in Model)
+      @foreach (Treat Treat in Model)
       {
-        <li><strong>@Html.ActionLink($"{Engineer.EngineerName}", "Details", new { id = Engineer.EngineerId }) | Status: @Engineer.EngineerStatus</li>
+        <li><strong>@Html.ActionLink($"{Treat.TreatName}", "Details", new { id = Treat.TreatId }) | Status: @Treat.TreatStatus</li>
       }
     </ul>
   </div>
@@ -26,9 +26,9 @@
     <label for="Name">Filter by name:</label>
     <input type="text" id="Name" name="name" required> 
     <input type="submit" value="Filter" class="btn btn-info btn-sm"/> 
-    @Html.ActionLink("Show all Engineers", "Index", null, null, new { @class = "btn btn-info btn-sm" })
+    @Html.ActionLink("Show all Treats", "Index", null, null, new { @class = "btn btn-info btn-sm" })
   }
   <hr />
-  <p>@Html.ActionLink("Add new Engineer", "Create", null, null, new { @class = "btn btn-info btn-large" })</p>
+  <p>@Html.ActionLink("Add new Treat", "Create", null, null, new { @class = "btn btn-info btn-large" })</p>
   <p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>

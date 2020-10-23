@@ -2,52 +2,39 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Machine
+@model Treats.Models.Flavor
 
 <div class="mainBox">
-  <h2>Machine Details</h2>
+  <h2>Flavor Details</h2>
   <hr />
-  <h3>Name: @Html.DisplayFor(model => model.MachineName)</h3>
-  <h4>Status:  @Html.DisplayFor(model => model.MachineStatus)</h4>
-  <h4>Next inspection date: @Html.DisplayFor(model => model.InspectionDate)</h4>
-  @if (@Model.Engineers.Count == 0)
+  <h3>Name: @Html.DisplayFor(model => model.FlavorName)</h3>
+  @* <h4>Status:  @Html.DisplayFor(model => model.FlavorStatus)</h4>
+  <h4>Next inspection date: @Html.DisplayFor(model => model.InspectionDate)</h4> *@
+  @if (@Model.Treats.Count == 0)
   {
-    <p>No engineers are assigned to this machine.</p>
+    <p>No Treats are assigned to this Flavor.</p>
   }
   else
   {
     <hr />
-    <h4>Engineers assigned to this machine:</h4>
+    <h4>Treats assigned to this Flavor:</h4>
     <ul>
-      @foreach (var join in Model.Engineers)
+      @foreach (var join in Model.Treats)
       {
-        @using (Html.BeginForm("DeleteEngineer", "Machines"))
+        @using (Html.BeginForm("DeleteTreat", "Flavors"))
         {
-        <li>@Html.ActionLink($"{join.Engineer.EngineerName}", "Details", "Engineers", new { id = join.Engineer.EngineerId })     <input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
-        @Html.Hidden("machineId", @join.MachineId)
-        @Html.Hidden("joinId", @join.MachineEngineerId)      
+        <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", "Treats", new { id = join.Treat.TreatId })     <input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
+        @Html.Hidden("FlavorId", @join.FlavorId)
+        @Html.Hidden("joinId", @join.TreatFlavorId)      
         }
       }
     </ul>  
   }
+  
+  
   <hr />
-  <h4>Incidents:</h4>
-  @if (@Model.Incidents.Count == 0)
-  {
-    <p>No incidents involving this machine.</p>
-  }
-  else
-  {  
-    <ul>
-      @foreach (var join in Model.Incidents)
-      {      
-        <li>@Html.ActionLink($"{join.Incident.IncidentTitle}", "Details", "Incidents", new { id = join.Incident.IncidentId })  </li>      
-      }
-    </ul>  
-  }
-  <hr />
-  <p>@Html.ActionLink("Add Licensed Engineer", "AddEngineer", null, new { id = Model.MachineId }, new { @class = "btn btn-info btn-sm" })</p>
-  <p>@Html.ActionLink("Edit Machine", "Edit", null, new { id = Model.MachineId }, new { @class = "btn btn-info btn-sm" })</p>
-  <p>@Html.ActionLink("Delete Machine", "Delete", null, new { id = Model.MachineId }, new { @class = "btn btn-info btn-sm" })</p>
-  <p>@Html.ActionLink("Back to Machine List", "Index",null, null, new { @class = "btn btn-info btn-sm" })</p>
+  <p>@Html.ActionLink("Add Licensed Treat", "AddTreat", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
+  <p>@Html.ActionLink("Edit Flavor", "Edit", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
+  <p>@Html.ActionLink("Delete Flavor", "Delete", null, new { id = Model.FlavorId }, new { @class = "btn btn-info btn-sm" })</p>
+  <p>@Html.ActionLink("Back to Flavor List", "Index",null, null, new { @class = "btn btn-info btn-sm" })</p>
 </div>
