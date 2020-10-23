@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Treats.Models;
-// /new using directives
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
@@ -13,21 +12,18 @@ using System.Security.Claims;
 
 namespace Treats.Controllers
 {
-  // [Authorize] //new line
+  // [Authorize] 
   public class TreatsController : Controller
   {
     private readonly TreatsContext _db;
-    private readonly UserManager<ApplicationUser> _userManager; //new line
+    private readonly UserManager<ApplicationUser> _userManager; 
     public TreatsController(UserManager<ApplicationUser> userManager, TreatsContext db)
     {
       _userManager = userManager;
       _db = db;
     }
     public ActionResult Index()
-    {
-      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      // var currentUser = await _userManager.FindByIdAsync(userId);
-      // List<Treat> userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
+    {      
 
       List<Treat> model = _db.Treats.OrderBy(x => x.TreatName).ToList();
       return View(model);
@@ -44,9 +40,7 @@ namespace Treats.Controllers
       var currentUser = await _userManager.FindByIdAsync(userId);
       Treat.User = currentUser; //"STAMP" USER ON THE OBJECT
       _db.Treats.Add(Treat);      
-      _db.SaveChanges();
-      // _db.Treats.Add(Treat);
-      // _db.SaveChanges();
+      _db.SaveChanges();      
       return RedirectToAction("Index");
     }
 

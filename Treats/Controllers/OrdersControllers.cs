@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Treats.Models;
-// /new using directives
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
@@ -13,11 +12,11 @@ using System.Security.Claims;
 
 namespace Orders.Controllers
 {
-  [Authorize] //new line
+  [Authorize] 
   public class OrdersController : Controller
   {
     private readonly TreatsContext _db;
-    private readonly UserManager<ApplicationUser> _userManager; //new line
+    private readonly UserManager<ApplicationUser> _userManager; 
     public OrdersController(UserManager<ApplicationUser> userManager, TreatsContext db)
     {
       _userManager = userManager;
@@ -27,9 +26,7 @@ namespace Orders.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      List<Order> userOrders = _db.Orders.Where(entry => entry.User.Id == currentUser.Id).ToList();
-
-      // List<Order> model = _db.Orders.OrderBy(x => x.OrderName).ToList();
+      List<Order> userOrders = _db.Orders.Where(entry => entry.User.Id == currentUser.Id).ToList();      
       return View(userOrders);
     }
     public ActionResult Create()

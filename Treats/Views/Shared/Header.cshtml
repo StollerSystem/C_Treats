@@ -2,17 +2,8 @@
   <ul id="headerList">
     <li class="headerUl">@Html.ActionLink("View Orders", "Index", "Orders")</li>
     <li class="headerUl">@Html.ActionLink("View Flavors", "Index", "Flavors")</li>
-    <li class="headerUl">@Html.ActionLink("View Treats", "Index", "Treats")</li>  
-    
-    <li class="headerUl">@Html.ActionLink("Accounts", "Index", "Account")</li> 
-
-    @* <li>@User.classentity.Name</li>> *@
-
-
-    @* <li class="nav-item">
-      <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">@User.classentity.Name</a>
-    </li> *@
-
+    <li class="headerUl">@Html.ActionLink("View Treats", "Index", "Treats")</li>      
+    <li class="headerUl">@Html.ActionLink("Accounts", "Index", "Account")</li>    
     <a href="@Url.Action("", "/")">
     <li class="homeImageUl"><img id="imageHome" src="~/img/HomeBtn.png"></a></li>
   </ul>

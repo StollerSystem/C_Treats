@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Treats.Models;
-// /new using directives
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
@@ -25,10 +24,7 @@ namespace Treats.Controllers
     }
 
     public ActionResult Index()
-    {
-      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      // var currentUser = await _userManager.FindByIdAsync(userId);
-      // List<Flavor> model = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
+    {      
       List<Flavor> model = _db.Flavors.OrderBy(x => x.FlavorName).ToList();
       return View(model);
     }
