@@ -16,7 +16,7 @@
 
       @Html.Label("Quantity")
       @Html.TextBox("TreatQuantity",null,
-      new {@required="required", type="number",min="0", step="1", oninput="validity.valid||(value='');" })
+      new {@required="required", type="number",min="1", step="1", oninput="validity.valid||(value='');" })
       
       <input type="submit" value="Add" class="btn btn-info btn-large" />
   }

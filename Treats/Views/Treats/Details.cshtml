@@ -5,6 +5,7 @@
 @model Treats.Models.Treat
 
 <div class="mainBox">
+  <h2>@ViewBag.message</h2>
   <h2>Treat Details</h2>
   <hr />
   <h3>Name: @Html.DisplayFor(model => model.TreatName) </h3>
@@ -48,3 +49,4 @@ else
   <p>@Html.ActionLink("Delete Treat", "Delete", null, new { id = Model.TreatId }, new { @class = "btn btn-info btn-sm" })</p>
 }
   <p>@Html.ActionLink("Back to Treat List", "Index",null, null, new { @class = "btn btn-info btn-sm" })</p>
+</div>

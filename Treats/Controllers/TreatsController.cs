@@ -46,11 +46,13 @@ namespace Treats.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult Details(int id)
+    public ActionResult Details(int id, string message)
     {
+      ViewBag.message = message;
       Treat model = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
       return View(model);
     }
+
     [Authorize (Roles = "Administrator")]
     public ActionResult Edit(int id)
     {
@@ -134,14 +136,15 @@ namespace Treats.Controllers
 
     [Authorize]
     [HttpPost]
-    public ActionResult AddOrder(Treat Treat, int OrderId)
+    public ActionResult AddOrder(Treat treat, int OrderId, int TreatQuantity)
     {
+      string confirmation = $"{TreatQuantity} {treat.TreatName} added to your order!";
       if (OrderId != 0)
       {
-        _db.OrderTreats.Add(new OrderTreat() { OrderId = OrderId, TreatId = Treat.TreatId });
+        _db.OrderTreats.Add(new OrderTreat() { OrderId = OrderId, TreatId = treat.TreatId, TreatQuantity = TreatQuantity });
       }
       _db.SaveChanges();
-      return RedirectToAction("Details", new { id = Treat.TreatId });
+      return RedirectToAction("Details", new { id = treat.TreatId, message = confirmation });
     }
   }
 }
